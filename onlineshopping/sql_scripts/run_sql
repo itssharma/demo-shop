@@ -1,0 +1,68 @@
+CREATE DATABASE onlineshopping;
+
+//category table
+CREATE TABLE category(
+	
+	id INT NOT NULL,
+	name VARCHAR(50),
+	description VARCHAR(255),
+	image_url VARCHAR(50),
+	is_active BOOL,
+	CONSTRAINT pk_category_id PRIMARY KEY(id)
+	
+);
+
+//product table
+CREATE TABLE product (
+	id INT,
+	prd_code VARCHAR(20),
+	prd_name VARCHAR(50),
+	brand VARCHAR(50),
+	prd_description VARCHAR(200),
+	unit_price DECIMAL(10,2),
+	quantity INT,
+	is_active BOOL,
+	category_id INT,
+	supplier_id INT,
+	purchases INT DEFAULT 0,
+	views INT DEFAULT 0,
+	CONSTRAINT pk_prd_id PRIMARY KEY(id),
+	CONSTRAINT fk_cat_id FOREIGN KEY(category_id) REFERENCES category (id),
+	CONSTRAINT fk_user_id FOREIGN KEY(supplier_id) REFERENCES user (id)
+);
+
+//user table
+CREATE TABLE user(
+	id INT,
+	firstname VARCHAR(20),
+	lastname VARCHAR(20),
+	user_role VARCHAR(30),
+	enabled BOOL,
+	contact_number CHAR(10),
+	email VARCHAR(50),
+	user_password VARCHAR(30),
+	CONSTRAINT pk_user_id PRIMARY KEY(id),	
+);
+
+//cart table
+CREATE TABLE cart(
+	id INT,
+	user_id INT,
+	grand_total DECIMAL(10,2),
+	cart_views INT,
+	CONSTRAINT pk_card_id PRIMARY KEY(id),
+	CONSTRAINT fk_cart_user_id FOREIGN KEY (user_id) REFERENCES user (id)
+); 
+
+//cartviews table
+CREATE TABLE cart_views(
+	id INT,
+	cart_id INT,
+	total DECIMAL(20,2),
+	product_id INT,
+	product_count INT,
+	product_price DECIMAL(10,2),
+	is_available BOOL,
+	CONSTRAINT fk_cartviews_product_id FOREIGN KEY (product_id) REFERENCES product (id),
+	CONSTRAINT pk_cartviews_id PRIMARY KEY(id)
+);
