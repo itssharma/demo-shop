@@ -23,3 +23,4 @@
 hs_err_pid*
 
 /onlineshopping/target/
+/onlineshopping/src/main/webapp/WEB-INF/views/flows/
