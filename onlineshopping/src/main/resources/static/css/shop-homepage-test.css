@@ -1,0 +1,30 @@
+div#card-test ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+   backgroud-color:red;
+}
+
+div#card-test ul li {
+  display: inline-block;
+  width: 100px;
+  border: 1px #CCC solid;
+  backgroud-color:green;
+  padding: 10px;
+  margin: 3px;
+}
+
+div#card-test ul li p {
+  margin-top: 2px;
+  margin-bottom: 2px;
+   backgroud-color:blue;
+}
+
+.dataTables_length {
+  width: 50%;  
+}
+
+.dataTables_filter {
+  width: 50%;  
+}

@@ -1,0 +1,11 @@
+CREATE TABLE cart_views(
+	id INT,
+	cart_id INT,
+	total DECIMAL(20,2),
+	product_id INT,
+	product_count INT,
+	product_price DECIMAL(10,2),
+	is_available BOOL,
+	CONSTRAINT fk_cartviews_product_id FOREIGN KEY (product_id) REFERENCES product (id),
+	CONSTRAINT pk_cartviews_id PRIMARY KEY(id)
+);

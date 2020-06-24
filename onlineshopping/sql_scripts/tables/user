@@ -1,0 +1,13 @@
+CREATE TABLE user(
+	id INT,
+	firstname VARCHAR(20),
+	lastname VARCHAR(20),
+	user_role VARCHAR(30),
+	enabled BOOL,
+	contact_number CHAR(10),
+	email VARCHAR(50),
+	user_password VARCHAR(30),
+	CONSTRAINT pk_user_id PRIMARY KEY(id),	
+);
+
+

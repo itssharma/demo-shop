@@ -1,0 +1,17 @@
+CREATE TABLE product (
+	id INT,
+	prd_code VARCHAR(20),
+	prd_name VARCHAR(50),
+	brand VARCHAR(50),
+	prd_description VARCHAR(200),
+	unit_price DECIMAL(10,2),
+	quantity INT,
+	is_active BOOL,
+	category_id INT,
+	supplier_id INT,
+	purchases INT DEFAULT 0,
+	views INT DEFAULT 0,
+	CONSTRAINT pk_prd_id PRIMARY KEY(id),
+	CONSTRAINT fk_cat_id FOREIGN KEY(category_id) REFERENCES category (id),
+	CONSTRAINT fk_user_id FOREIGN KEY(supplier_id) REFERENCES user (id)
+);
